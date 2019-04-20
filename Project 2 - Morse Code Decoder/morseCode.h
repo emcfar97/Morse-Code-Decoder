@@ -5,8 +5,10 @@ class morseCode
 {
 public:
 	morseCode(std::string file);
-	BTNode<char> encode();
+	BTNode<char> encode(std::fstream file);
 	std::string decode();
+private:
+	BTNode<char> tree;
 };
 
 /** A node for a Binary Tree. */

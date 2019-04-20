@@ -2,10 +2,11 @@
 
 morseCode::morseCode(std::string file)
 {
-
+	std::fstream fin(file);
+	tree = encode(fin);
 }
 
-BTNode<char> morseCode::encode()
+BTNode<char> morseCode::encode(std::fstream file)
 {
 
 }
