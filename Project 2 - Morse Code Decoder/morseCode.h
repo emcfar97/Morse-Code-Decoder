@@ -5,9 +5,10 @@
 class morseCode
 {
 public:
-	morseCode(std::string file);
-	char encode(std::fstream file);
+	morseCode(std::string str);
+	char encode(std::string userString);
 	std::string decode();
+
 private:
 	char tree;
 };

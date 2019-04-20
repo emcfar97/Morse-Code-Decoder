@@ -46,7 +46,6 @@ const Item_Type* Binary_Search_Tree<Item_Type>::find(BTNode<Item_Type>* local_ro
 }
 
 
-}
 
 
 
