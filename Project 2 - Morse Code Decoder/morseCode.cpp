@@ -2,13 +2,14 @@
 
 morseCode::morseCode(std::string str)
 {
-	
-	char tree = encode(str);
+	std::vector<std::string> tree = encode(str);
 }
 
-char morseCode::encode(std::string userString)
+std::vector<std::string> morseCode::encode(std::string userStr)
 {
-	map<char, string> morse;
+	std::vector<std::string> encoding;
+	std::map<char, std::string> morse;
+
 	morse['a'] = "._ ";
 	morse['b'] = "_... ";
 	morse['c'] = "_._ ";
@@ -35,13 +36,13 @@ char morseCode::encode(std::string userString)
 	morse['y'] = "_.__ ";
 	morse['z'] = "__.. ";
 
-	for (int i = 0; i < userString.size(); i++) {
-		std::cout << morse.find(userString[i])->second;
+	for (std::string::iterator it = userStr.begin(); it != userStr.end(); ++it) {
+		encoding.push_back(morse.find(*it)->second);
 	}
+	return encoding;
 }
-
 
 std::string morseCode::decode()
 {
-
+	return " ";
 }

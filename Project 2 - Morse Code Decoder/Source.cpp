@@ -12,8 +12,8 @@ int main() {
 		cout << "Enter word to endode: ";
 		cin >> input;
 
-		// stuff
-
+		morseCode encoding = morseCode(input);
+		cout << encoding.decode();
 
 		cout << "Do you want to encode another word?\nEnter 'y' or 'n'";
 		cin >> input;
