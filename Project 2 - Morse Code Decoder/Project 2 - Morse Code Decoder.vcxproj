@@ -119,6 +119,8 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Binary_Search_Tree.h" />
+    <ClInclude Include="Binary_Tree.h" />
     <ClInclude Include="morseCode.h" />
   </ItemGroup>
   <ItemGroup>

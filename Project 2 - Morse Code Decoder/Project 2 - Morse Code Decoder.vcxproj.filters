@@ -26,6 +26,12 @@
     <ClInclude Include="morseCode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Binary_Search_Tree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Binary_Tree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="morse.txt">
