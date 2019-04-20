@@ -5,9 +5,9 @@
 int main() {
 
 	while (true) {
-		
+
 		std::string input;
-		std::cout << "Enter word to endode";
+		std::cout << "Enter word to endode: ";
 		std::cin >> input;
 
 		// stuff
