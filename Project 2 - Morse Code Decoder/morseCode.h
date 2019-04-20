@@ -10,7 +10,7 @@ public:
 private:
 	BTNode<char> tree;
 };
-
+/**/
 /** A node for a Binary Tree. */
 template<typename Item_Type> 
 struct BTNode {
