@@ -17,6 +17,7 @@ int main() {
 		cout << "Do you want to encode another word?\nEnter 'y' or 'n'";
 		cin >> input;
 
-		if (input == "n") break;
+		if (input == "y") continue;
+		else if (input == "n") break;
 	}
 }
