@@ -1,8 +1,7 @@
 #include <iostream>
 #include <string>
 #include "morseCode.h"
-using std::cout;
-using std::cin;
+using namespace std;
 
 int main() {
 
@@ -13,7 +12,7 @@ int main() {
 		cin >> input;
 
 		morseCode encoding = morseCode(input);
-		cout << encoding.decode();
+		cout << encoding.decode() << endl;
 
 		cout << "Do you want to encode another word?\nEnter 'y' or 'n'";
 		cin >> input;
