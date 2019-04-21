@@ -1,10 +1,15 @@
-#include <iostream>
-#include <string>
-#include <map>
-using namespace std;
+#include "morseCode.h"
 
-void encode(string userString) {
-	map<char, string> morse;
+morseCode::morseCode(std::string str)
+{
+	std::vector<std::string> tree = encode(str);
+}
+
+std::vector<std::string> morseCode::encode(std::string userStr)
+{
+	std::vector<std::string> encoding;
+	std::map<char, std::string> morse;
+
 	morse['a'] = "._ ";
 	morse['b'] = "_... ";
 	morse['c'] = "_._ ";
@@ -31,12 +36,13 @@ void encode(string userString) {
 	morse['y'] = "_.__ ";
 	morse['z'] = "__.. ";
 	
-	for (int i = 0; i < userString.size(); i++) {
-		cout << morse.find(userString[i]) -> second;
+	for (std::string::iterator it = userStr.begin(); it != userStr.end(); ++it) {
+		encoding.push_back(morse.find(*it)->second);
 	}
+	return encoding;
 }
 
-void main() {
-	encode("hello");
-	system("pause");
+std::string morseCode::decode()
+{
+	return " ";
 }
