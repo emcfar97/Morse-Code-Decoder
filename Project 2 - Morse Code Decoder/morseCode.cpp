@@ -14,7 +14,7 @@ std::vector<std::string> morseCode::encode(std::string userStr)
 	morse['b'] = "_... ";
 	morse['c'] = "_._ ";
 	morse['e'] = "_.. ";
-	morse['f'] = ".";
+	morse['f'] = ". ";
 	morse['g'] = ".._. ";
 	morse['h'] = ".... ";
 	morse['i'] = ".. ";
