@@ -7,14 +7,12 @@
 #include "Binary_Search_Tree.h"
 #include "BTNode.h"
 
-using namespace std;
-
 class morseCode
 {
 public:
-	morseCode(string str);
-	vector<string> encode(string userStr);
-	string decode(morseCode encoding);
+	morseCode(std::string str);
+	std::vector<std::string> encode(std::string userStr);
+	std::string decode(morseCode encoding);
 
 //private:
 	char encoding;
