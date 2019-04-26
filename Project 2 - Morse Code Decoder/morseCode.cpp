@@ -52,15 +52,13 @@ string morseCode::decode(string encoding)
 
 	istringstream sin;  //create string stream to read each letter
 
-	while (sin >> morseLetter) { //go through each letter in the code
-
-								 //find what the letter is from the tree
+	while (sin >> morseLetter) {	// go through each letter in the code
+									// find what the letter is from the tree
 		letter = find(origin, morseLetter);
 
 		//add letter to word
 		word += letter;
 	}
-
 	return word;
 
 }
