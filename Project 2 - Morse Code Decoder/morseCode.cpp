@@ -48,10 +48,10 @@ vector<string> morseCode::encode(string userStr)
 	}
 	return encoding;
 }
-/*
-string morseCode::decode(morseCode encoding)
-{
 
+string morseCode::decode(morseCode encoding)
+{}
+	/*
 
 	string word;  //final word decoded
 	string morseLetter; //variable to hold each morse code letter
