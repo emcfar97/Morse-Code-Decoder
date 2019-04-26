@@ -64,28 +64,12 @@ string morseCode::decode(morseCode encoding)
 
 	while (sin >> morseLetter) {	// go through each letter in the code
 									// find what the letter is from the tree
-		letter = find(origin, morseLetter);
+		letter = Binary_Search_Tree.find(origin, morseLetter);
 
 		//add letter to word
 		word += letter;
 	}
 	return word;
 
-}
-*/
-void morseCode::find(string userString) {}
-/*
-	for (int i = 0; i < userString.size(); i++) {
-
-		if (userString[i] == '.') {
-			local_root = local_root->left;
-		}
-		if (userString[i] == '_') {
-			local_root = loacl_root->right;
-		}
-		if (i == userString.size() - 1) {
-			return local_root->data;
-		}
-	}
 }
 */
