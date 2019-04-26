@@ -1,23 +1,21 @@
 #include "morseCode.h"
-using namespace std;
 
-morseCode::morseCode(string str)
+morseCode::morseCode(std::string str)
 {	
-	ofstream file;
+	std::ifstream file;
 	file.open("morse.txt");
-	string line;
+	std::string line;
 
-	while ( !file.eof() ) {
-		getline(file, line, '\n');
+	while (std::getline(file, line)) {
 
 	}
-	vector<string> encoding = encode(str);
+	std::vector<std::string> encoding = encode(str);
 }
 
-vector<string> morseCode::encode(string userStr)
+std::vector<std::string> morseCode::encode(std::string userStr)
 {
-	vector<string> encoding;
-	map<char, string> morse;
+	std::vector<std::string> encoding;
+	std::map<char, std::string> morse;
 
 	morse['a'] = "._ ";
 	morse['b'] = "_... ";
@@ -45,13 +43,13 @@ vector<string> morseCode::encode(string userStr)
 	morse['y'] = "_.__ ";
 	morse['z'] = "__.. ";
 	
-	for (string::iterator it = userStr.begin(); it != userStr.end(); ++it) {
+	for (std::string::iterator it = userStr.begin(); it != userStr.end(); ++it) {
 		encoding.push_back(morse.find(*it)->second);
 	}
 	return encoding;
 }
 
-string morseCode::decode(morseCode encoding)
+std::string morseCode::decode(morseCode encoding)
 {}
 	/*
 
