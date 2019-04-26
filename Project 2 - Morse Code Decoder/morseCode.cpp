@@ -1,13 +1,14 @@
 #include "morseCode.h"
-#include <fstream>
 using namespace std;
 
 morseCode::morseCode(string str)
 {	
 	ofstream file;
-	file.open(str);
+	file.open("morse.txt");
+	string line;
+
 	while ( !file.eof() ) {
-		
+		getline(file, line, ' ');
 	}
 	vector<string> encoding = encode(str);
 }

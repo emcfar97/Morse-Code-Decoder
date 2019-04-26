@@ -5,6 +5,7 @@ using namespace std;
 
 int main() {
 
-	morseCode encoding = morseCode("morse.txt");
+	string input;
+	morseCode encoding = morseCode(input);
 	string decoded = encoding.decode(encoding);
 }
