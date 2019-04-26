@@ -70,8 +70,9 @@ string morseCode::decode(morseCode encoding)
 	return word;
 
 }
-
-void morseCode::find(string userString) {
+*/
+void morseCode::find(string userString) {}
+/*
 	for (int i = 0; i < userString.size(); i++) {
 
 		if (userString[i] == '.') {
