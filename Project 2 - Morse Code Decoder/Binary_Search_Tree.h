@@ -2,6 +2,7 @@
 #define BINARY_SEARCH_TREE_H
 
 #include "Binary_Tree.h"
+#include <string>
 
 
 template<typename Item_Type>
@@ -12,7 +13,7 @@ public:
 	Binary_Search_Tree() : Binary_Tree<Item_Type>() {}
 
 	// Public Member Functions
-	virtual bool insert(const Item_Type& item);
+	bool Binary_Search_Tree<Item_Type>::insert(const Item_Type& item, const Item_Type& letter);
 
 	virtual bool erase(const Item_Type& item);
 
@@ -29,7 +30,7 @@ private:
 
 	// Private Member Functions
 	virtual bool insert(BTNode<Item_Type>*& local_root,
-		const Item_Type& item);
+		const Item_Type& item, const Item_Type& letter);
 
 	virtual bool erase(BTNode<Item_Type>*& local_root,
 		const Item_Type& item);
@@ -105,32 +106,51 @@ const Item_Type* Binary_Search_Tree<Item_Type>::find(BTNode<Item_Type>* local_ro
 	}
 }
 
+//insert function takes in
+//item: the string of morse code 
+//letter: a string containing the letter corresponding to the morse code 
 template<typename Item_Type>
-bool Binary_Search_Tree<Item_Type>::insert(const Item_Type& item) {
-	return insert(this->root, item);
+bool Binary_Search_Tree<Item_Type>::insert(const Item_Type& item, const Item_Type& letter) {
+	return insert(this->root, item, letter);
 }
 
 template<typename Item_Type>
-//FIXME: ROOT OF TREE IS SUPPOSED TO BE NULL, HOW DO WE INSERT NODES
-bool Binary_Search_Tree<Item_Type>::insert(BTNode<Item_Type>*& local_root, const Item_Type& item) {
-	if (local_root == NULL) {
-		local_root = new BTNode<Item_Type>(item);
-		return true;
-	}
-	else {
-		//iteratively
-		/*for (int i = 0; i < item.size(); i++) {
+//FIXME: ROOT OF TREE IS SUPPOSED TO BE NULL, maybe we can just make a dummy node for the start?
+bool Binary_Search_Tree<Item_Type>::insert(BTNode<Item_Type>*& local_root, const Item_Type& item, const Item_Type& letter) {
+
+	string temp = "temp";
+
+	for (int i = 0; i < item.size(); i++) {
+
+		//at a null, create a new temporary node to allow us to traverse the tree 
+		//even without having the internal nodes' data
+		if (local_root == NULL) {
+			local_root = new BTNode<Item_Type>(temp);
+		}
+		
+		//depending on the current character move down the tree 
 		if (item[i] == '.') {
-		local_root = local_root->left;
+			local_root = local_root->left;
 		}
 		else if (item[i] == '_') {
-		local_root = local_root->right;
+			local_root = local_root->right;
 		}
 
+		//once the last character is reached the letter can be added as data to the current node
 		if (i == item.size() - 1) {
-		return local_root->data;
+			if (local_root == NULL) {	//insert in node that is a leaf
+				local_root = new BTNode<Item_Type>(letter);
+				return true;
+			}
+			else if (local_root->data == temp) {	//insert in node that is an internal node
+				local_root->data = letter;
+			}
+			else {	//the node already exists so the letter cannot be inserted
+				return false;
+			}
 		}
-		}*/
+		
+	}
 
 		//recursive
 		/*if (item == '.')
