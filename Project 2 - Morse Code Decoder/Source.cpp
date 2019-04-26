@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-	string input = "";
+	string input = "shsftghsh";
 	morseCode encoding = morseCode(input);
 	string decoded = encoding.decode();
 }
