@@ -34,12 +34,12 @@ const Item_Type* Binary_Search_Tree<Item_Type>::find(
 }
 
 template<typename Item_Type>
-const Item_Type* Binary_Search_Tree<Item_Type>::find(BTNode<Item_Type>* local_root, const Item_Type& target) const {
+const Item_Type* Binary_Search_Tree<Item_Type>::find(BTNode<Item_Type>* local_root) const {
 		if (local_root == NULL)
 			return NULL;
-		if (target < local_root->data)
+		if ('.' == local_root->data)
 			return find(local_root->left, target);
-		else if (local_root->data < target)
+		else if (local_root->data == '_')
 			return find(local_root->right, target);
 		else
 			return &(local_root->data);
