@@ -62,7 +62,7 @@ std::string morseCode::decode(morseCode encoding)
 
 	while (sin >> morseLetter) {	// go through each letter in the code
 									// find what the letter is from the tree
-		letter = Binary_Search_Tree.find(origin, morseLetter);
+		letter = Binary_Search_Tree.find(morseLetter);
 
 		//add letter to word
 		word += letter;
