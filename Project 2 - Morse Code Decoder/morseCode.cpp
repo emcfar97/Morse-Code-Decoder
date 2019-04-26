@@ -1,14 +1,15 @@
 #include "morseCode.h"
+using namespace std;
 
-morseCode::morseCode(std::string str)
+morseCode::morseCode(string str)
 {
-	std::vector<std::string> tree = encode(str);
+	vector<string> encoding = encode(str);
 }
 
-std::vector<std::string> morseCode::encode(std::string userStr)
+vector<string> morseCode::encode(string userStr)
 {
-	std::vector<std::string> encoding;
-	std::map<char, std::string> morse;
+	vector<string> encoding;
+	map<char, string> morse;
 
 	morse['a'] = "._ ";
 	morse['b'] = "_... ";
@@ -36,13 +37,30 @@ std::vector<std::string> morseCode::encode(std::string userStr)
 	morse['y'] = "_.__ ";
 	morse['z'] = "__.. ";
 	
-	for (std::string::iterator it = userStr.begin(); it != userStr.end(); ++it) {
+	for (string::iterator it = userStr.begin(); it != userStr.end(); ++it) {
 		encoding.push_back(morse.find(*it)->second);
 	}
 	return encoding;
 }
 
-std::string morseCode::decode()
+string morseCode::decode(string encoding)
 {
-	return " ";
+	string word;  //final word decoded
+	string morseLetter; //variable to hold each morse code letter
+	string letter;  //variable to hold each alphabet letter
+	BTNode origin;  //node pointer to root node of morse tree
+
+	istringstream sin;  //create string stream to read each letter
+
+	while (sin >> morseLetter) { //go through each letter in the code
+
+								 //find what the letter is from the tree
+		letter = find(origin, morseLetter);
+
+		//add letter to word
+		word += letter;
+	}
+
+	return word;
+
 }
