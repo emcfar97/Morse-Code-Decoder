@@ -159,7 +159,6 @@ bool Binary_Search_Tree<Item_Type>::insert(BTNode<Item_Type>*& local_root, const
 		return insert(local_root->right, item);
 		else
 		return false;*/
-	}
 }
 
 
