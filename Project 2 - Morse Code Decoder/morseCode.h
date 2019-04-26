@@ -6,6 +6,9 @@
 #include <map>
 #include "Binary_Search_Tree.h"
 #include "BTNode.h"
+
+using namespace std;
+
 class morseCode
 {
 public:
