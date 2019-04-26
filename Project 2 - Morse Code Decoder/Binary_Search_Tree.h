@@ -37,15 +37,26 @@ const Item_Type* Binary_Search_Tree<Item_Type>::find(
 }
 
 template<typename Item_Type>
-const Item_Type* Binary_Search_Tree<Item_Type>::find(BTNode<Item_Type>* local_root) const {
+const Item_Type* Binary_Search_Tree<Item_Type>::find(BTNode<Item_Type>* local_root,
+	const Item_Type& target) const {
 		if (local_root == NULL)
-			return NULL;
-		if ('.' == local_root->data)
-			return find(local_root->left, target);
-		else if (local_root->data == '_')
-			return find(local_root->right, target);
-		else
-			return &(local_root->data);
+			return NULL;	//FIXME: THIS SHOULD MAYBE BE AN ERROR MESSAGE INSTEAD?
+		else {
+			//iteratively traverse BST
+			for (int i = 0; i < target.size(); i++) {
+				if (target[i] == '.') {
+					local_root = local_root->left;
+				}
+				else if (target[i] == '_') {
+					local_root = local_root->right;
+				}
+
+				//if the last character of the morse code letter is reached return the data of the current node
+				if (i == target.size() - 1) {
+					return local_root->data;
+				}
+			}
+		}
 }
 
 
@@ -55,18 +66,34 @@ bool Binary_Search_Tree<Item_Type>::insert(const Item_Type& item) {
 }
 
 template<typename Item_Type>
+//FIXME: ROOT OF TREE IS SUPPOSED TO BE NULL, HOW DO WE INSERT NODES
 bool Binary_Search_Tree<Item_Type>::insert(BTNode<Item_Type>*& local_root, const Item_Type& item) {
 	if (local_root == NULL) {
 		local_root = new BTNode<Item_Type>(item);
 		return true;
 	}
 	else {
-		if (item < local_root->data)
+		//iteratively
+		/*for (int i = 0; i < item.size(); i++) {
+			if (item[i] == '.') {
+				local_root = local_root->left;
+			}
+			else if (item[i] == '_') {
+				local_root = local_root->right;
+			}
+
+			if (i == item.size() - 1) {
+				return local_root->data;
+			}
+		}*/
+
+		//recursive
+		/*if (item == '.')
 			return insert(local_root->left, item);
-		else if (local_root->data < item)
+		else if (item == '_')
 			return insert(local_root->right, item);
 		else
-			return false;
+			return false;*/
 	}
 }
 
