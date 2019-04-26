@@ -43,8 +43,10 @@ vector<string> morseCode::encode(string userStr)
 	return encoding;
 }
 
-string morseCode::decode(string encoding)
+string morseCode::decode(encoding)
 {
+
+
 	string word;  //final word decoded
 	string morseLetter; //variable to hold each morse code letter
 	string letter;  //variable to hold each alphabet letter
@@ -61,4 +63,19 @@ string morseCode::decode(string encoding)
 	}
 	return word;
 
+}
+
+void morseCode::find(string userString) {
+	for (int i = 0; i < userString.size(); i++) {
+
+		if (userString[i] == '.') {
+			local_root = local_root->left;
+		}
+		if (userString[i] == '_') {
+			local_root = loacl_root->right;
+		}
+		if (i == userString.size() - 1) {
+			return local_root->data;
+		}
+	}
 }

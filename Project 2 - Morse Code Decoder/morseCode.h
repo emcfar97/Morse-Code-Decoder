@@ -12,6 +12,7 @@ public:
 	morseCode(string str);
 	vector<string> encode(string userStr);
 	string decode(string encoding);
+	void find(string userString);
 
 //private:
 	char encoding;
