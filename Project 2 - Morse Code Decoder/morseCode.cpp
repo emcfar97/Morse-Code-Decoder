@@ -1,8 +1,14 @@
 #include "morseCode.h"
+#include <fstream>
 using namespace std;
 
 morseCode::morseCode(string str)
-{
+{	
+	ofstream file;
+	file.open(str);
+	while ( !file.eof() ) {
+		
+	}
 	vector<string> encoding = encode(str);
 }
 
@@ -42,8 +48,8 @@ vector<string> morseCode::encode(string userStr)
 	}
 	return encoding;
 }
-
-string morseCode::decode(encoding)
+/*
+string morseCode::decode(morseCode encoding)
 {
 
 
@@ -79,3 +85,4 @@ void morseCode::find(string userString) {
 		}
 	}
 }
+*/

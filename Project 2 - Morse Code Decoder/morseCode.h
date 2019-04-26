@@ -11,7 +11,7 @@ class morseCode
 public:
 	morseCode(string str);
 	vector<string> encode(string userStr);
-	string decode(string encoding);
+	string decode(morseCode encoding);
 	void find(string userString);
 
 //private:
