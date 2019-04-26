@@ -8,7 +8,8 @@ morseCode::morseCode(string str)
 	string line;
 
 	while ( !file.eof() ) {
-		getline(file, line, ' ');
+		getline(file, line, '\n');
+
 	}
 	vector<string> encoding = encode(str);
 }
