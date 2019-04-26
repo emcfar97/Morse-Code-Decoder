@@ -12,12 +12,15 @@ public:
 	Binary_Search_Tree() : Binary_Tree<Item_Type>() {}
 
 	// Public Member Functions
+	virtual bool insert(const Item_Type& item);
 
 	const Item_Type* find(const Item_Type& target) const;
 private:
 
 	// Private Member Functions
 
+	virtual bool insert(BTNode<Item_Type>*& local_root,
+		const Item_Type& item);
 
 	const Item_Type* find(BTNode<Item_Type>* local_root,
 		const Item_Type& target) const;
@@ -43,6 +46,28 @@ const Item_Type* Binary_Search_Tree<Item_Type>::find(BTNode<Item_Type>* local_ro
 			return find(local_root->right, target);
 		else
 			return &(local_root->data);
+}
+
+
+template<typename Item_Type>
+bool Binary_Search_Tree<Item_Type>::insert(const Item_Type& item) {
+	return insert(this->root, item);
+}
+
+template<typename Item_Type>
+bool Binary_Search_Tree<Item_Type>::insert(BTNode<Item_Type>*& local_root, const Item_Type& item) {
+	if (local_root == NULL) {
+		local_root = new BTNode<Item_Type>(item);
+		return true;
+	}
+	else {
+		if (item < local_root->data)
+			return insert(local_root->left, item);
+		else if (local_root->data < item)
+			return insert(local_root->right, item);
+		else
+			return false;
+	}
 }
 
 #endif
