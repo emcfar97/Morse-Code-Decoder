@@ -16,7 +16,7 @@ morseCode::morseCode(std::string str)
 		std::string h = tree.to_string();
 
 	}
-	std::vector<std::string> encoding = encode(str);
+	file.close();
 }
 
 std::vector<std::string> morseCode::encode(std::string userStr)
