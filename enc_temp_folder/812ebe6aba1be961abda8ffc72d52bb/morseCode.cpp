@@ -7,11 +7,10 @@ morseCode::morseCode(std::string str)
 	std::string line;
 
 	while (std::getline(file, line)) {
-		std::vector<std::string> letter, morse;
+		std::vector<std::string> letter;
 		letter.push_back(line.substr(0));
+		std::vector<std::string> morse;
 		morse.push_back(line.substr(1, line.size()));
-
-
 	}
 	std::vector<std::string> encoding = encode(str);
 }
