@@ -11,6 +11,8 @@ morseCode::morseCode(std::string str)
 		letter.push_back(line.substr(0));
 		morse.push_back(line.substr(1, line.size()));
 
+		Binary_Search_Tree<std::string> tree;
+		tree.insert(tree, morse, letter);
 
 	}
 	std::vector<std::string> encoding = encode(str);
