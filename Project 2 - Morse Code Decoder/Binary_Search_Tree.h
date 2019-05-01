@@ -144,6 +144,7 @@ bool Binary_Search_Tree<Item_Type>::insert(BTNode<Item_Type>*& local_root, const
 			}
 			else if (local_root->data == temp) {	//insert in node that is an internal node
 				local_root->data = letter;
+				return true;
 			}
 			else {	//the node already exists so the letter cannot be inserted
 				return false;
