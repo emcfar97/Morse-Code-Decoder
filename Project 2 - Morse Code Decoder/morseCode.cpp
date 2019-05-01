@@ -5,7 +5,6 @@ morseCode::morseCode(std::string str)
 	std::ifstream file;
 	file.open("morse.txt");
 	std::string line;
-	Binary_Search_Tree<std::string> tree;
 
 	while (std::getline(file, line)) {
 		std::string letter, morse;
