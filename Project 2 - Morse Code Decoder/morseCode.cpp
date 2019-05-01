@@ -55,14 +55,14 @@ std::string morseCode::encode(std::string userStr)
 	return encoding;
 }
 
-std::string morseCode::decode(morseCode encoding)
+std::string morseCode::decode(std::string morse)
 {
 
 	std::string word;  //final word decoded
 	std::string morseLetter; //variable to hold each morse code letter
 	std::string letter;  //variable to hold each alphabet letter
 
-	std::istringstream sin;  //create string stream to read each letter
+	std::istringstream sin(morse);  //create string stream to read each letter
 
 	while (sin >> morseLetter) {	// go through each letter in the code
 									// find what the letter is from the tree
