@@ -120,14 +120,17 @@ bool Binary_Search_Tree<Item_Type>::insert(BTNode<Item_Type>*& local_root, const
 		//even without having the internal nodes' data
 		if (local_root == NULL) {
 			local_root = new BTNode<Item_Type>(temp);
+			i--;
+			continue;
 		}
-
-		//depending on the current character move down the tree 
-		if (item[i] == '.') {
-			local_root = local_root->left;
-		}
-		else if (item[i] == '_') {
-			local_root = local_root->right;
+		else {
+			//depending on the current character move down the tree 
+			if (item[i] == '.') {
+				local_root = local_root->left;
+			}
+			else if (item[i] == '_') {
+				local_root = local_root->right;
+			}
 		}
 
 		//once the last character is reached the letter can be added as data to the current node

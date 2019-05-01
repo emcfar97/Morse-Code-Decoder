@@ -5,8 +5,8 @@
 int main() {
 
 	std::string input = "h";
-	/*morseCode encoding = morseCode(input);
-	std::string decoded = encoding.decode(encoding);*/
+	morseCode encoding = morseCode(input);
+	/*std::string decoded = encoding.decode(encoding);*/
 
 	//test decode
 	/*
