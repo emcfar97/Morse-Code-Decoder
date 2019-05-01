@@ -11,7 +11,7 @@ class morseCode
 {
 public:
 	morseCode(std::string str);
-	std::vector<std::string> encode(std::string userStr);
+	std::string encode(std::string userStr);
 	std::string decode(morseCode encoding);
 
 //private:

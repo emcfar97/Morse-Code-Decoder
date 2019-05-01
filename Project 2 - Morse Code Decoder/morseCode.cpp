@@ -18,9 +18,9 @@ morseCode::morseCode(std::string str)
 	file.close();
 }
 
-std::vector<std::string> morseCode::encode(std::string userStr)
+std::string morseCode::encode(std::string userStr)
 {
-	std::vector<std::string> encoding;
+	std::string encoding;
 	std::map<char, std::string> morse;
 
 	morse['a'] = "._ ";
@@ -50,7 +50,7 @@ std::vector<std::string> morseCode::encode(std::string userStr)
 	morse['z'] = "__.. ";
 	
 	for (std::string::iterator it = userStr.begin(); it != userStr.end(); ++it) {
-		encoding.push_back(morse.find(*it)->second);
+		encoding += morse.find(*it)->second;
 	}
 	return encoding;
 }
