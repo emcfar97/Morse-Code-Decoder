@@ -98,7 +98,7 @@ const Item_Type* Binary_Search_Tree<Item_Type>::find(BTNode<Item_Type>* local_ro
 
 			//if the last character of the morse code letter is reached return the data of the current node
 			if (i == target.size() - 1) {
-				return local_root->data;
+				return &(local_root->data);
 			}
 		}
 	}

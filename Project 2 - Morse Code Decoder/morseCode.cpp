@@ -5,7 +5,6 @@ morseCode::morseCode(std::string str)
 	std::ifstream file;
 	file.open("morse.txt");
 	std::string line;
-	Binary_Search_Tree<std::string> tree;
 
 	while (std::getline(file, line)) {
 		std::string letter, morse;
@@ -58,20 +57,16 @@ std::vector<std::string> morseCode::encode(std::string userStr)
 
 std::string morseCode::decode(morseCode encoding)
 {
-	return ".";
-}
-	/*
 
-	string word;  //final word decoded
-	string morseLetter; //variable to hold each morse code letter
-	string letter;  //variable to hold each alphabet letter
-	BTNode origin;  //node pointer to root node of morse tree
+	std::string word;  //final word decoded
+	std::string morseLetter; //variable to hold each morse code letter
+	std::string letter;  //variable to hold each alphabet letter
 
-	istringstream sin;  //create string stream to read each letter
+	std::istringstream sin;  //create string stream to read each letter
 
 	while (sin >> morseLetter) {	// go through each letter in the code
 									// find what the letter is from the tree
-		letter = Binary_Search_Tree.find(morseLetter);
+		letter = *tree.find(morseLetter);
 
 		//add letter to word
 		word += letter;
@@ -79,4 +74,3 @@ std::string morseCode::decode(morseCode encoding)
 	return word;
 
 }
-*/
