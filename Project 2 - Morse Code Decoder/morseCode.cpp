@@ -50,8 +50,7 @@ std::vector<std::string> morseCode::encode(std::string userStr)
 }
 
 std::string morseCode::decode(morseCode encoding)
-{}
-	/*
+{
 
 	string word;  //final word decoded
 	string morseLetter; //variable to hold each morse code letter
@@ -70,4 +69,3 @@ std::string morseCode::decode(morseCode encoding)
 	return word;
 
 }
-*/
