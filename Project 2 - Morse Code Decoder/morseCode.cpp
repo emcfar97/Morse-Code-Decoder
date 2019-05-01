@@ -5,14 +5,15 @@ morseCode::morseCode(std::string str)
 	std::ifstream file;
 	file.open("morse.txt");
 	std::string line;
+	Binary_Search_Tree<std::string> tree;
 
 	while (std::getline(file, line)) {
 		std::string letter, morse;
-		letter = line.substr(0);
+		letter = line.substr(0,1);
 		morse = line.substr(1, line.size());
 
-		Binary_Search_Tree<std::string> tree;
 		tree.insert(morse, letter);
+		std::string h = tree.to_string();
 
 	}
 	std::vector<std::string> encoding = encode(str);

@@ -2,7 +2,6 @@
 #define BINARY_SEARCH_TREE_H
 
 #include "Binary_Tree.h"
-#include <string>
 
 
 template<typename Item_Type>
@@ -13,7 +12,7 @@ public:
 	Binary_Search_Tree() : Binary_Tree<Item_Type>() {}
 
 	// Public Member Functions
-	bool Binary_Search_Tree<Item_Type>::insert(const Item_Type& item, const Item_Type& letter);
+	virtual bool insert(const Item_Type& item, const Item_Type& letter);
 
 	virtual bool erase(const Item_Type& item);
 
@@ -29,8 +28,7 @@ public:
 private:
 
 	// Private Member Functions
-	virtual bool insert(BTNode<Item_Type>*& local_root,
-		const Item_Type& item, const Item_Type& letter);
+	virtual bool insert(BTNode<Item_Type>*& local_root, const Item_Type& item, const Item_Type& letter);
 
 	virtual bool erase(BTNode<Item_Type>*& local_root,
 		const Item_Type& item);
@@ -106,19 +104,15 @@ const Item_Type* Binary_Search_Tree<Item_Type>::find(BTNode<Item_Type>* local_ro
 	}
 }
 
-//insert function takes in
-//item: the string of morse code 
-//letter: a string containing the letter corresponding to the morse code 
 template<typename Item_Type>
 bool Binary_Search_Tree<Item_Type>::insert(const Item_Type& item, const Item_Type& letter) {
 	return insert(this->root, item, letter);
 }
 
 template<typename Item_Type>
-//FIXME: ROOT OF TREE IS SUPPOSED TO BE NULL, maybe we can just make a dummy node for the start?
 bool Binary_Search_Tree<Item_Type>::insert(BTNode<Item_Type>*& local_root, const Item_Type& item, const Item_Type& letter) {
-
-	string temp = "temp";
+	
+	std::string temp = "temp";
 
 	for (int i = 0; i < item.size(); i++) {
 
@@ -127,7 +121,7 @@ bool Binary_Search_Tree<Item_Type>::insert(BTNode<Item_Type>*& local_root, const
 		if (local_root == NULL) {
 			local_root = new BTNode<Item_Type>(temp);
 		}
-		
+
 		//depending on the current character move down the tree 
 		if (item[i] == '.') {
 			local_root = local_root->left;
@@ -150,16 +144,8 @@ bool Binary_Search_Tree<Item_Type>::insert(BTNode<Item_Type>*& local_root, const
 				return false;
 			}
 		}
-		
-	}
 
-		//recursive
-		/*if (item == '.')
-		return insert(local_root->left, item);
-		else if (item == '_')
-		return insert(local_root->right, item);
-		else
-		return false;*/
+	}
 }
 
 
@@ -206,6 +192,7 @@ void Binary_Search_Tree<Item_Type>::replace_parent(BTNode<Item_Type>*& old_root,
 		local_root = local_root->left;
 	}
 }
+
 
 
 #endif
