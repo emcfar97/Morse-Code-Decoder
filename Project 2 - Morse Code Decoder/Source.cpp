@@ -9,13 +9,15 @@ int main() {
 	/*std::string decoded = encoding.decode(encoding);*/
 
 	//test decode
-	/*
+	
 	morseCode beep(input);
 	//a to m
+	/*
 	std::cout << beep.decode("._ _... _._. _.. . .._. __. .... .. .___ _._ ._.. __") << std::endl;
 	//n to z
 	std::cout << beep.decode("_. ___ .__. __._ ._. ... _ .._ ..._ .__ _.._ _.__ __..") << std::endl;
 	*/
+	std::cout << beep.decode(". _._. .... ___") << std::endl;
 
 	//test encode
 	
