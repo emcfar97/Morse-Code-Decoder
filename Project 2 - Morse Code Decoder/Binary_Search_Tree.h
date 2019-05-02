@@ -84,24 +84,29 @@ const Item_Type* Binary_Search_Tree<Item_Type>::find(
 template<typename Item_Type>
 const Item_Type* Binary_Search_Tree<Item_Type>::find(BTNode<Item_Type>* local_root,
 	const Item_Type& target) const {
+
+	BTNode<Item_Type>* temp_root = local_root;	//temp pointer to traverse tree
+
 	if (local_root == NULL)
 		return NULL;	//FIXME: THIS SHOULD MAYBE BE AN ERROR MESSAGE INSTEAD?
 	else {
 		//iteratively traverse BST
 		for (int i = 0; i < target.size(); i++) {
 			if (target[i] == '.') {
-				local_root = local_root->left;
+				temp_root = temp_root->left;
 			}
 			else if (target[i] == '_') {
-				local_root = local_root->right;
+				temp_root = temp_root->right;
 			}
 
 			//if the last character of the morse code letter is reached return the data of the current node
 			if (i == target.size() - 1) {
-				return &(local_root->data);
+				return &(temp_root->data);
 			}
 		}
 	}
+
+	temp_root = NULL;	//deallocate memory for temp pointer
 }
 
 template<typename Item_Type>
