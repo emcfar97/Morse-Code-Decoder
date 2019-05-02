@@ -3,9 +3,8 @@
 #include "morseCode.h"
 
 int main() {
-
-	std::string input = "h";
-	morseCode encoding = morseCode(input);
+	
+	morseCode instance = morseCode();
 	/*std::string decoded = encoding.decode(encoding);*/
 
 	//test decode

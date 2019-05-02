@@ -1,6 +1,6 @@
 #include "morseCode.h"
 
-morseCode::morseCode(std::string str)
+morseCode::morseCode()
 {	
 	std::ifstream file;
 	file.open("morse.txt");

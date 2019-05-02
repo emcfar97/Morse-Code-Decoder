@@ -123,8 +123,6 @@
     <ClInclude Include="Binary_Tree.h" />
     <ClInclude Include="BTNode.h" />
     <ClInclude Include="morseCode.h" />
-    <ClInclude Include="String_Tokenizer.h" />
-    <ClInclude Include="Syntax_Error.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="morse.txt" />
