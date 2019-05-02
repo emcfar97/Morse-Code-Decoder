@@ -120,40 +120,43 @@ bool Binary_Search_Tree<Item_Type>::insert(BTNode<Item_Type>*& local_root, const
 	std::string temp = "temp";
 
 	for (int i = 0; i < item.size(); i++) {
-
-		//at a null, create a new temporary node to allow us to traverse the tree 
-		//even without having the internal nodes' data
+		    //create a dummy node for the root
 		if (local_root == NULL) {
 			local_root = new BTNode<Item_Type>(temp);
-			i--;
-			continue;
 		}
-		else {
-			//depending on the current character move down the tree 
-			if (item[i] == '.') {
-				local_root = local_root->left;
-			}
-			else if (item[i] == '_') {
-				local_root = local_root->right;
-			}
+		//depending on the current character move down the tree
+		if (item[i] == '.') {
+      			if (local_root->left == NULL) { //at a null, create a new temporary node to allow us to traverse the tree
+        			local_root->left = new BTNode<Item_Type>(temp);
+      			}
+			local_root = local_root->left;
 		}
-
-		//once the last character is reached the letter can be added as data to the current node
-		if (i == item.size() - 1) {
-			if (local_root == NULL) {	//insert in node that is a leaf
-				local_root = new BTNode<Item_Type>(letter);
-				return true;
-			}
-			else if (local_root->data == temp) {	//insert in node that is an internal node
-				local_root->data = letter;
-				return true;
-			}
-			else {	//the node already exists so the letter cannot be inserted
-				return false;
-			}
+		else if (item[i] == '_') {
+      			if (local_root->right == NULL) {
+        			local_root->right = new BTNode<Item_Type>(temp);
+      			}
+			local_root = local_root->right;
 		}
+    		else {
+      			std::cout << "invalid morse character";
+     	 		break;
+      			//FIXME: some sort of error message
+    		}
 
 	}
+	
+	//once the last character is reached the letter can be added as data to the current node
+  	if (local_root == NULL) {	//the node should not be null so throw an error
+    		std::cout << "error";	//FIXME: is this an error?
+    		return false;
+  	}
+  	else if (local_root->data == temp) {	//insert letter at correct node
+    		local_root->data = letter;
+    		return true;
+  	}
+  	else {	//the node already exists so the letter cannot be inserted
+    		return false;
+  	}
 }
 
 
