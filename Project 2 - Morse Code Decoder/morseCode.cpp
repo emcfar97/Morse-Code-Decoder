@@ -15,6 +15,7 @@ morseCode::morseCode(std::string str)
 		std::string h = tree.to_string();
 
 	}
+	std::string check = tree.to_string();
 	file.close();
 }
 
