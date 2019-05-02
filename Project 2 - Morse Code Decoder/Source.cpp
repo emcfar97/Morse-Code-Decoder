@@ -19,12 +19,10 @@ int main() {
 	//test encode
 	
 	morseCode boop(input);
-	
-	//std::cout << boop.encode("a") << std::endl;
-	//std::cout << boop.encode("b") << std::endl;
-	
-	std::cout << boop.encode("c") << std::endl;
 	/*
+	std::cout << boop.encode("a") << std::endl;
+	std::cout << boop.encode("b") << std::endl;
+	std::cout << boop.encode("c") << std::endl;
 	std::cout << boop.encode("d") << std::endl;
 	std::cout << boop.encode("e") << std::endl;
 	std::cout << boop.encode("f") << std::endl;
@@ -49,6 +47,7 @@ int main() {
 	std::cout << boop.encode("y") << std::endl;
 	std::cout << boop.encode("z") << std::endl;
 	*/
+	std::cout << boop.encode("hello") << std::endl;
 	
 
 	system("pause");
