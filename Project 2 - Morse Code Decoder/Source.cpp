@@ -9,10 +9,10 @@ int main() {
 	/*std::string decoded = encoding.decode(encoding);*/
 
 	//test decode
-	/*
+	
 	morseCode beep(input);
 	std::cout << beep.decode("...");
-	*/
+	
 
 	//test encode
 	/*
