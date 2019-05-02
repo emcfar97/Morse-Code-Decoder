@@ -117,7 +117,7 @@ bool Binary_Search_Tree<Item_Type>::insert(BTNode<Item_Type>*& local_root, const
 		local_root = new BTNode<Item_Type>(temp);
 	}
 
-	if (item.size() > 1) {
+	if (item.size() >= 1) {
 		std::string remainder = item.substr(1, item.size());
 		if (item.substr(1, 2) == ".")
 			return insert(local_root->left, remainder, letter);

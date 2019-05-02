@@ -7,13 +7,12 @@ morseCode::morseCode()
 	std::string line;
 
 	while (std::getline(file, line)) {
+
 		std::string letter, morse;
-		letter = line.substr(0,1);
+		letter = line.substr(0, 1);
 		morse = line.substr(1, line.size());
 
 		tree.insert(morse, letter);
-		std::string h = tree.to_string();
-
 	}
 	file.close();
 }
