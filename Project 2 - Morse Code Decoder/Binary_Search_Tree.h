@@ -112,16 +112,18 @@ bool Binary_Search_Tree<Item_Type>::insert(const Item_Type& encoding, const Item
 template<typename Item_Type>
 bool Binary_Search_Tree<Item_Type>::insert(BTNode<Item_Type>*& local_root, const Item_Type& encoding, const Item_Type& decoding) {
 	
-	std::string temp = encoding.substr(0, 1);
 	if (local_root == NULL) {
-		local_root = new BTNode<Item_Type>(temp);
+		// create new node from first index of encoding
+		local_root = new BTNode<Item_Type>(encoding.substr(0, 1););
 	}
-
 	if (encoding.size() > 1) {
+		
 		std::string remainder = encoding.substr(1, encoding.size());
-		if (item.substr(1, 2) == ".")
+		std::string next = encoding.substr(1, 2);
+		
+		if (next == ".")
 			return insert(local_root->left, remainder, decoding);
-		else if (item.substr(1, 2) == "_")
+		else if (next == "_")
 			return insert(local_root->right, remainder, decoding);
 		else
 			return false;
