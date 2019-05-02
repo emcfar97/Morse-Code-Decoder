@@ -12,7 +12,7 @@ public:
 	Binary_Search_Tree() : Binary_Tree<Item_Type>() {}
 
 	// Public Member Functions
-	virtual bool insert(const Item_Type& item, const Item_Type& letter);
+	virtual bool insert(const Item_Type& encoding, const Item_Type& decoding);
 
 	virtual bool erase(const Item_Type& item);
 
@@ -28,7 +28,7 @@ public:
 private:
 
 	// Private Member Functions
-	virtual bool insert(BTNode<Item_Type>*& local_root, const Item_Type& item, const Item_Type& letter);
+	virtual bool insert(BTNode<Item_Type>*& local_root, const Item_Type& encoding, const Item_Type& decoding);
 
 	virtual bool erase(BTNode<Item_Type>*& local_root,
 		const Item_Type& item);
@@ -105,24 +105,24 @@ const Item_Type* Binary_Search_Tree<Item_Type>::find(BTNode<Item_Type>* local_ro
 }
 
 template<typename Item_Type>
-bool Binary_Search_Tree<Item_Type>::insert(const Item_Type& item, const Item_Type& letter) {
-	return insert(this->root, item, letter);
+bool Binary_Search_Tree<Item_Type>::insert(const Item_Type& encoding, const Item_Type& decoding) {
+	return insert(this->root, encoding, decoding);
 }
 
 template<typename Item_Type>
-bool Binary_Search_Tree<Item_Type>::insert(BTNode<Item_Type>*& local_root, const Item_Type& item, const Item_Type& letter) {
+bool Binary_Search_Tree<Item_Type>::insert(BTNode<Item_Type>*& local_root, const Item_Type& encoding, const Item_Type& decoding) {
 	
-	std::string temp = item.substr(0, 1);
+	std::string temp = encoding.substr(0, 1);
 	if (local_root == NULL) {
 		local_root = new BTNode<Item_Type>(temp);
 	}
 
-	if (item.size() > 1) {
-		std::string remainder = item.substr(1, item.size());
+	if (encoding.size() > 1) {
+		std::string remainder = encoding.substr(1, encoding.size());
 		if (item.substr(1, 2) == ".")
-			return insert(local_root->left, remainder, letter);
+			return insert(local_root->left, remainder, decoding);
 		else if (item.substr(1, 2) == "_")
-			return insert(local_root->right, remainder, letter);
+			return insert(local_root->right, remainder, decoding);
 		else
 			return false;
 	}
