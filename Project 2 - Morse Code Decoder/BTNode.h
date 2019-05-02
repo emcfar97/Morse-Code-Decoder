@@ -8,6 +8,7 @@ struct BTNode
 {
 	// Data Fields
 	Item_Type data;
+	Item_Type decoding;
 	BTNode<Item_Type>* left;
 	BTNode<Item_Type>* right;
 
