@@ -10,10 +10,10 @@
 class morseCode
 {
 public:
-	morseCode(std::string str);
+	morseCode();
 	std::string encode(std::string userStr);
 	std::string decode(std::string morse);
 
-//private:
+private:
 	Binary_Search_Tree<std::string> tree;
 };
