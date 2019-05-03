@@ -10,12 +10,8 @@ morseCode::morseCode()
 		std::string letter, morse;
 		letter = line.substr(0,1);
 		morse = line.substr(1, line.size());
-
 		tree.insert(morse, letter);
-		std::string h = tree.to_string();
-
 	}
-	std::string check = tree.to_string();
 	file.close();
 }
 
@@ -50,7 +46,8 @@ std::string morseCode::encode(std::string userStr)
 	morse['x'] = "_.._";
 	morse['y'] = "_.__";
 	morse['z'] = "__..";
-
+	
+	// go through user string, finding each value in morse map, and append to encoding
 	for (std::string::iterator it = userStr.begin(); it != userStr.end(); ++it) {
 		encoding += morse.find(*it)->second;
 		encoding += " ";
@@ -58,22 +55,20 @@ std::string morseCode::encode(std::string userStr)
 	return encoding;
 }
 
-std::string morseCode::decode(std::string morse)
+std::string morseCode::decode(std::string code)
 {
 
-	std::string word;  //final word decoded
-	std::string morseLetter; //variable to hold each morse code letter
-	std::string letter;  //variable to hold each alphabet letter
+	std::string decoding;	 // final word decoded
+	std::string morseLetter; // variable to hold each morse code letter
+	std::string letter;		 // variable to hold each alphabet letter
 
-	std::istringstream sin(morse);  //create string stream to read each letter
+	std::istringstream sin(code);  //create string stream to read each letter
 
-	while (sin >> morseLetter) {	// go through each letter in the code
-									// find what the letter is from the tree
+	// go through each letter, finding each value in morse tree, and apend to decoding
+	while (sin >> morseLetter) {	
 		letter = *tree.find(morseLetter);
-
-		//add letter to word
-		word += letter;
+		decoding += letter;
 	}
-	return word;
+	return decoding;
 
 }
