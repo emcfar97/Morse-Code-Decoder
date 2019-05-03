@@ -3,7 +3,6 @@
 
 #include "Binary_Tree.h"
 
-
 template<typename Item_Type>
 class Binary_Search_Tree : public Binary_Tree<Item_Type>
 {
@@ -166,7 +165,6 @@ bool Binary_Search_Tree<Item_Type>::insert(BTNode<Item_Type>*& local_root, const
 	temp_root = NULL;
 }
 
-
 template<typename Item_Type>
 bool Binary_Search_Tree<Item_Type>::erase(const Item_Type& item) {
 	return erase(this->root, item);
@@ -210,7 +208,5 @@ void Binary_Search_Tree<Item_Type>::replace_parent(BTNode<Item_Type>*& old_root,
 		local_root = local_root->left;
 	}
 }
-
-
 
 #endif
