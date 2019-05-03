@@ -2,9 +2,10 @@
 
 morseCode::morseCode()
 {	
+	// declare ifstream and string open morse.txt
 	std::ifstream file;
-	file.open("morse.txt");
 	std::string line;
+	file.open("morse.txt");
 
 	while (std::getline(file, line)) {
 		std::string letter, morse;
@@ -61,7 +62,6 @@ std::string morseCode::decode(std::string code)
 	std::string decoding;	 // final word decoded
 	std::string morseLetter; // variable to hold each morse code letter
 	std::string letter;		 // variable to hold each alphabet letter
-
 	std::istringstream sin(code);  //create string stream to read each letter
 
 	// go through each letter, finding each value in morse tree, and apend to decoding
