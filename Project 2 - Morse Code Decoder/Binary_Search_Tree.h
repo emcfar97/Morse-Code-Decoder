@@ -3,13 +3,12 @@
 
 #include "Binary_Tree.h"
 
-
 template<typename Item_Type>
 class Binary_Search_Tree : public Binary_Tree<Item_Type>
 {
 public:
 	// Constructor
-	Binary_Search_Tree() : Binary_Tree<Item_Type>() {}
+	Binary_Search_Tree() : Binary_Tree<Item_Type>() { root->data = "root"; }
 
 	// Public Member Functions
 	virtual bool insert(const Item_Type& encoding, const Item_Type& decoding);
@@ -74,7 +73,6 @@ const Item_Type* Binary_Search_Tree<Item_Type>::max(BTNode<Item_Type>* local_roo
 	return max(local_root->right);
 }
 
-
 template<typename Item_Type>
 const Item_Type* Binary_Search_Tree<Item_Type>::find(
 	const Item_Type& item) const {
@@ -114,13 +112,13 @@ bool Binary_Search_Tree<Item_Type>::insert(BTNode<Item_Type>*& local_root, const
 	
 	if (local_root == NULL) {
 		// create new node from first index of encoding
-		local_root = new BTNode<Item_Type>(encoding.substr(0, 1););
+		local_root = new BTNode<Item_Type>(encoding.substr(0, 1));
 	}
 	if (encoding.size() > 1) {
-		
+
 		std::string remainder = encoding.substr(1, encoding.size());
-		std::string next = encoding.substr(1, 2);
-		
+		std::string next = encoding.substr(1, 1);
+
 		if (next == ".")
 			return insert(local_root->left, remainder, decoding);
 		else if (next == "_")
@@ -129,10 +127,9 @@ bool Binary_Search_Tree<Item_Type>::insert(BTNode<Item_Type>*& local_root, const
 			return false;
 	}
 	else
+		local_root->decoding = decoding;
 		return true;
 }
-
-
 
 template<typename Item_Type>
 bool Binary_Search_Tree<Item_Type>::erase(const Item_Type& item) {
@@ -177,7 +174,5 @@ void Binary_Search_Tree<Item_Type>::replace_parent(BTNode<Item_Type>*& old_root,
 		local_root = local_root->left;
 	}
 }
-
-
 
 #endif

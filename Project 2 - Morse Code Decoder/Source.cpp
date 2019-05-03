@@ -18,6 +18,4 @@ int main() {
 	morseCode beep(input);
 	std::cout << beep.encode("hh") << std::endl;
 	*/
-
-	system("pause");
 }
