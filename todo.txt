@@ -1,2 +1,0 @@
-1.do source.cpp
-2.do encoding method in morseCode.cpp
