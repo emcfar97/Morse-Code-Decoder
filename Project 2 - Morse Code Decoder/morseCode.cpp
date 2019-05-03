@@ -12,7 +12,6 @@ morseCode::morseCode()
 		morse = line.substr(1, line.size());
 		tree.insert(morse, letter);
 	}
-	std::string check = tree.to_string();
 	file.close();
 }
 
